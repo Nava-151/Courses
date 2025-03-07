@@ -8,6 +8,6 @@ export class User {
         public email: string,   
         public password: string,   // סיסמה של המשתמש
         public role: string,
-        public courses: Course[]     // תפקיד המשתמש
+        // public courses: Course[]     // תפקיד המשתמש
     ) {}
 }

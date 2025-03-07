@@ -15,7 +15,7 @@
         <mat-card-actions>
           @if(authService.isTeacher==false)
           {
-          @if(courses!=null&&courses.indexOf(course)!=-1){
+          @if(this.courseService.isEnrolled(course.id)){
           <button mat-raised-button color="warn" class="mat-button" (click)="leaveCourse(course)">Leave</button>
           }
           @else {

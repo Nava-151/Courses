@@ -35,7 +35,7 @@ export class DisplayCourseComponent {
     this.router.params.subscribe(params => {
       this.courseId = +params['courseId'];
       this.lessonId=+params['id'];
-      this.lessonService.getAllLessons().subscribe((data: Lesson[]) => { this.lessons = data });
+      this.lessonService.getAllLessons(this.courseId).subscribe(data=>this.lessons=data);
 
     });
   }

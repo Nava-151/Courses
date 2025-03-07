@@ -18,17 +18,17 @@ export class AllCoursesComponent {
   allCourses: Course[] = [];
   courses: Course[] = [];
 
-  constructor(private router: Router, private courseService: CourseService, public authService: AuthenticationService) {
+  constructor(private router: Router, public courseService: CourseService, public authService: AuthenticationService) {
     console.log("in all courses constructor");
-    courseService.getAllCourses().subscribe((data: Course[]) => { this.allCourses = data });
-    this.courses = authService.currentUser?.courses as Course[];
-    console.log("user courses " + this.courses);
-
+    courseService.getAllCourses().subscribe((data) => { this.allCourses = data });
   }
 
   joinCourse(course: Course) {
+    this.courseService.getCourseById(course.id).subscribe(res=>
+      console.log(res)
+    )
     this.courseService.addStudentToCourse(course.id, this.authService.currentUser?.id as number).subscribe(()=>{
-console.log(this.authService.currentUser?.id);
+    console.log(this.authService.currentUser?.id);
 
     });
 

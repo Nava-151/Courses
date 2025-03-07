@@ -9,7 +9,7 @@ export const teacherConnectedGuard: CanActivateFn = (route, state) => {
     return true;
   else
   {
-    router.navigate(['/login']);
+    router.navigate(['login']);
     return false;
     
   }

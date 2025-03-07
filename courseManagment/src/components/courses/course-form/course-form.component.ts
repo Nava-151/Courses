@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule, Form } from '@angular/forms';
 import { CourseService } from '../service/course.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Course } from '../../../models/course';
 import { LessonService } from '../../lessons/service/lessons.service';
 import { User } from '../../../models/user';
@@ -20,7 +20,7 @@ export class CourseFormComponent {
 
   courseId: number = 0;
   course!: Course;
-  constructor(private courseService: CourseService, private router: ActivatedRoute, private userService: UserService) {
+  constructor(private courseService: CourseService, private router: ActivatedRoute, private userService: UserService,private route:Router) {
     this.router.params.subscribe(params => {
       this.courseId = +params['id'];
       console.log("course id" + this.courseId);
@@ -42,14 +42,21 @@ export class CourseFormComponent {
   }
   onSubmit() {
     if (this.courseId > 0)
-      this.courseService.updateCourse(this.courseId, { id: this.courseId, title: this.courseForm.value.title, description: this.courseForm.value.description, teacherId: this.course.teacherId, lessons: [] }).subscribe(data => console.log(data));
+      this.courseService.updateCourse(this.courseId, { id: this.courseId, title: this.courseForm.value.title, description: this.courseForm.value.description, teacherId: this.course.teacherId, lessons: [] }).subscribe(data => {console.log(data)
+      this.route.navigate(['seeAll']);
+  });
     else {
       console.log(this.courseId);
       const id = this.userService.currentUser?.id as number;
       this.courseService.createCourse({
         id: this.courseId, title: this.courseForm.value.title, description: this.courseForm.value.description,
         teacherId: +(localStorage.getItem("userId") || "0"), lessons: []
-      }).subscribe(data => console.log(data));
+      }).subscribe(data => {console.log(data)
+      this.route.navigate(['seeAll']);
+      console.log("navigated?");
+      
+      }
+    );
     }
   }
   courseForm: FormGroup = new FormGroup({

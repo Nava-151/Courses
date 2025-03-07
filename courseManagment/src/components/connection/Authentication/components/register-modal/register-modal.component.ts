@@ -19,7 +19,7 @@ export class RegisterModalComponent {
   @Input() isVisible = false;
   // dialogRef: MatDialogRef<RegisterModalComponent>
 
-  user: User = new User(1, '', '', '', '', []);
+  user: User = new User(1, '', '', '', '');
 
   registerForm: FormGroup = new FormGroup({
     name: new FormControl(''),
