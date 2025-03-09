@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule, Form } from '@angular/forms';
 import { CourseService } from '../service/course.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Course } from '../../../models/course';
 import { UserService } from '../../../services/user.service';
 import {  MatIconModule } from '@angular/material/icon';
@@ -11,7 +11,8 @@ import {  MatIconModule } from '@angular/material/icon';
   imports: [
     ReactiveFormsModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    RouterModule
   ],
   templateUrl: './course-form.component.html',
   styleUrl: './course-form.component.css'

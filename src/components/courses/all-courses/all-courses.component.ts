@@ -3,14 +3,14 @@ import { Course } from '../../../models/course';
 import { CourseService } from '../service/course.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { AuthenticationService } from '../../connection/Authentication/service/authentication.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { log } from 'console';
 @Component({
   selector: 'app-all-courses',
-  imports: [MatCardModule, MatGridListModule, MatButtonModule, RouterOutlet,MatIconModule],
+  imports: [MatCardModule, MatGridListModule, MatButtonModule, RouterOutlet,MatIconModule,RouterModule],
   templateUrl: './all-courses.component.html',
   styleUrl: './all-courses.component.css'
 })

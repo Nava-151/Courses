@@ -3,7 +3,7 @@ import { User } from '../../../models/user';
 import { AuthenticationService } from '../Authentication/service/authentication.service';
 import { MatButtonModule } from '@angular/material/button';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { _MatInternalFormField } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
@@ -14,7 +14,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   selector: 'app-register-modal',
   templateUrl: './register-modal.component.html',
   imports: [MatButtonModule, FormsModule, ReactiveFormsModule,MatIconModule,
-    MatDialogModule,MatFormFieldModule,MatInputModule,MatCheckboxModule
+    MatDialogModule,MatFormFieldModule,MatInputModule,MatCheckboxModule,RouterModule
   ],
   styleUrls: ['./register-modal.component.css']
 })

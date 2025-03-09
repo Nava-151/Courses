@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Lesson } from '../../../models/lesson';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { LessonService } from '../service/lessons.service';
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
@@ -8,7 +8,8 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-lesson-form',
   imports: [ReactiveFormsModule,
-    FormsModule,MatIconModule
+    FormsModule,MatIconModule,
+    RouterModule
 ],
   templateUrl: './lesson-form.component.html',
   styleUrl: './lesson-form.component.css'
