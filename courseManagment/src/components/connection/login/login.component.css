@@ -1,10 +1,48 @@
-.container {
+
+css
+Copy
+Edit
+/* עיצוב ה-Header */
+.header {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+/* כפתורים בצבע טורקיז */
+.turquoise-button {
+    background-color: #40E0D0 !important; /* טורקיז */
+    color: white !important;
+    font-weight: bold;
+}
+
+/* אייקונים ריווח טוב */
+mat-icon {
+    margin-right: 5px;
+}
+
+
+
+/* .container {
     max-width: 1200px;
     margin: auto;
     padding: 20px;
-  }
+  } */
   
-  .header {
+  /* .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,4 +78,4 @@
     height: 150px;
     object-fit: cover;
   }
-  
+   */

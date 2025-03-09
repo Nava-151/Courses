@@ -1,13 +1,21 @@
-<div class="course">
+
+   <div class="course">
     <div class="course-content">
-      <h2>Course form: </h2>
-      <h3>hghg</h3>
+      <h2>Course Form</h2>
+  
       <form [formGroup]="courseForm" (submit)="onSubmit()">
-          <input matInput formControlName="title" placeholder="title">
-          <input matInput formControlName="description" placeholder="description">
-        <button mat-raised-button color="accent" type="submit">Send</button>
-        <button mat-raised-button color="warn" (click)="closeModal()">Close</button>
+        <input matInput formControlName="title" placeholder="Title" />
+        <input matInput formControlName="description" placeholder="Description" />
+  
+        <div class="form-actions">
+          <button mat-raised-button color="accent" type="submit">
+            <mat-icon>send</mat-icon> Send
+          </button>
+          <button mat-raised-button color="warn" (click)="closeModal()">
+            <mat-icon>close</mat-icon> Close
+          </button>
+        </div>
       </form>
-    <!-- check url and change in route  -->
     </div>
   </div>
+  

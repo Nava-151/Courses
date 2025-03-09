@@ -1,5 +1,3 @@
-import { Course } from "./course";
-import { Lesson } from "./lesson";
 
 export class User {
     constructor(
@@ -8,6 +6,5 @@ export class User {
         public email: string,   
         public password: string,   // סיסמה של המשתמש
         public role: string,
-        // public courses: Course[]     // תפקיד המשתמש
     ) {}
 }

@@ -3,11 +3,12 @@ import { Lesson } from '../../../models/lesson';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LessonService } from '../service/lessons.service';
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-lesson-form',
   imports: [ReactiveFormsModule,
-    FormsModule,
+    FormsModule,MatIconModule
 ],
   templateUrl: './lesson-form.component.html',
   styleUrl: './lesson-form.component.css'

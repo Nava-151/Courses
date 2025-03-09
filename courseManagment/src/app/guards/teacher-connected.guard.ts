@@ -1,5 +1,5 @@
 import { CanActivateFn, Router } from '@angular/router';
-import { AuthenticationService } from '../service/authentication.service';
+import { AuthenticationService } from '../../components/connection/Authentication/service/authentication.service';
 import { inject, Inject } from '@angular/core';
 
 export const teacherConnectedGuard: CanActivateFn = (route, state) => {

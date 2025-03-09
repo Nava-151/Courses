@@ -3,15 +3,15 @@ import { FormGroup, FormControl, FormsModule, ReactiveFormsModule, Form } from '
 import { CourseService } from '../service/course.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Course } from '../../../models/course';
-import { LessonService } from '../../lessons/service/lessons.service';
-import { User } from '../../../models/user';
 import { UserService } from '../../../services/user.service';
+import {  MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-course-form',
   imports: [
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatIconModule
   ],
   templateUrl: './course-form.component.html',
   styleUrl: './course-form.component.css'

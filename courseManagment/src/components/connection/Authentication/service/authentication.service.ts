@@ -17,15 +17,11 @@ export class AuthenticationService {
   
     // Register a new user
     register(user: User): Observable<any> {
-      console.log("in register user service");
       this.currentUser = user;
-      console.log(" email "+user.email+" passward "+user.password+" name "+user.name+" role "+user.role);
-      console.log(`${this.apiUrl}/auth/register`);
       return this.http.post(`${this.apiUrl}/register`, user);
     }
 
     login(credentials: { email: string; password: string }): Observable<any> {
-      
       return this.http.post(`${this.apiUrl}/login`, credentials);
     }
   

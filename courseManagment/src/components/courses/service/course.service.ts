@@ -15,25 +15,21 @@ export class CourseService {
   constructor(private http: HttpClient) { }
 
 
-
-
   getAllCourses(): Observable<Course[]> {
     return this.http.get<Course[]>(this.apiUrl);
   }
 
   addStudentToCourse(courseId: number, userId: number): any {
-    return this.http.post<void>(`http://localhost:3000/api/courses/${courseId}/enroll`, { userId }).subscribe(()=>this.getUserCourses(courseId))  ;
+  
+    return this.http.post<void>(`http://localhost:3000/api/courses/${courseId}/enroll`,{ userId });
   }
-  getUserCourses(userId: number):void {
-    this.http.get<Course[]>(`${this.apiUrl}/student/${userId}`).subscribe(
-     (courses) => {
-       this.courseSubject.next(courses);
-     },
-     (error) => alert('Error:' + error.message));
+  getUserCourses(userId: number):Observable<Course[]> {
+  
+  return this.http.get<Course[]>(`${this.apiUrl}/student/${userId}`);
  }
   deleteCourseFromStudent(courseId: number, userId: number): Observable<void> {
     const body = { userId };
-    return this.http.delete<void>(`http://localhost:3000/api/courses/${courseId}/unenroll`, { body });
+    return this.http.delete<void>(`http://localhost:3000/api/courses/${courseId}/unenroll`, { body: body });
   }
   getCourseById(id: number): Observable<Course> {
     console.log("in get course by id");
@@ -58,12 +54,6 @@ export class CourseService {
     );
   }
 
-  isEnrolled(courseId: number):Observable< boolean> {
-    const res = this.myCourses$.pipe(
-      map((courses) => courses.some((course) => course.id === courseId))
-    );
-    return res;
-  }
 
 }
 

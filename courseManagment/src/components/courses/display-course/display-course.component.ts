@@ -14,6 +14,9 @@ import { AuthenticationService } from '../../connection/Authentication/service/a
   styleUrl: './display-course.component.css'
 })
 export class DisplayCourseComponent {
+  lessonId!:number;
+  courseId!: number;
+  lessons!: Lesson[]
   AddLesson() {
     this.route.navigate([`courses/${this.courseId}/lessons/add`]);
   }
@@ -23,20 +26,18 @@ export class DisplayCourseComponent {
   updateLesson(lesson: Lesson) {
     this.route.navigate([`courses/${this.courseId}/lessons/edit/${lesson.id}`]);
   }
-  lessonId!:number;
-  courseId!: number;
-  lessons!: Lesson[]
+
   constructor(private router: ActivatedRoute,
     private route: Router,
     private lessonService: LessonService,
     public authService: AuthenticationService,
-  ) {
+  ) 
+  {
     console.log("in display course constructor");
     this.router.params.subscribe(params => {
       this.courseId = +params['courseId'];
       this.lessonId=+params['id'];
       this.lessonService.getAllLessons(this.courseId).subscribe(data=>this.lessons=data);
-
     });
   }
 

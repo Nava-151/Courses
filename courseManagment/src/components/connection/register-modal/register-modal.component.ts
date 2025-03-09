@@ -1,17 +1,20 @@
 import { Component, Input } from '@angular/core';
-import { User } from '../../../../../models/user';
-import { AuthenticationService } from '../../service/authentication.service';
+import { User } from '../../../models/user';
+import { AuthenticationService } from '../Authentication/service/authentication.service';
 import { MatButtonModule } from '@angular/material/button';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { _MatInternalFormField } from '@angular/material/core';
-
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 @Component({
   selector: 'app-register-modal',
   templateUrl: './register-modal.component.html',
-  imports: [MatButtonModule, FormsModule, ReactiveFormsModule,
-    MatDialogModule
+  imports: [MatButtonModule, FormsModule, ReactiveFormsModule,MatIconModule,
+    MatDialogModule,MatFormFieldModule,MatInputModule,MatCheckboxModule
   ],
   styleUrls: ['./register-modal.component.css']
 })
@@ -42,7 +45,7 @@ export class RegisterModalComponent {
     
     this.authenticationService.register(this.user).subscribe(res => {
       console.log(res)
-      localStorage.setItem("userId", res.id);
+      localStorage.setItem("id", res.id);
       sessionStorage.setItem("token", res.token);
       this.authenticationService.isLoggedIn = true;
       this.authenticationService.isTeacher = this.user.role == "teacher" ? true : false;
