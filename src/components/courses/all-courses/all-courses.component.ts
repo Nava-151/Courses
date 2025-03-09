@@ -16,46 +16,36 @@ import { log } from 'console';
 })
 export class AllCoursesComponent  {
 
-
   allCourses: Course[] = [];
   joinedCourses:Course[]=[];
   id: number = 0
 
-
   constructor(private router: Router, public courseService: CourseService, public authService: AuthenticationService) {
-    console.log("in all courses constructor");
     this.id = +(localStorage.getItem("userId")||'0');
-
     courseService.getAllCourses().subscribe((data) => { this.allCourses = data });
-    console.log(authService.currentUser?.id);
-    // this.courseService.myCourses$.subscribe(data=>
-
-    // )
-    this.courseService.getUserCourses(this.id).subscribe(data=>{this.joinedCourses=data
-      console.log("d: "+data);
-      
-    });
+    this.courseService.getUserCourses(this.id).subscribe(data=>{this.joinedCourses=data});
   }
- 
+
 
   joinCourse(course: Course) {
-    console.log(this.joinedCourses);
-    
-    this.joinedCourses.forEach(t=>console.log(t.id));
     this.courseService.addStudentToCourse(course.id, this.id).subscribe(()=>{
       this.courseService.getUserCourses(this.id).subscribe(data=>this.joinedCourses=data);
     });
   }
+
 
   leaveCourse(course: Course) {
     this.courseService.deleteCourseFromStudent(course.id,this.id).subscribe();
     this.courseService.getUserCourses(this.id).subscribe(data=>this.joinedCourses=data);
   }
 
+
   showDetails(course: Course) {
     console.log(course.id);
     this.router.navigate([`courses/${course.id}/lessons`]);
   }
+
+  
   deleteCourse(course: Course) {
     this.courseService.deleteCourse(course.id).subscribe(()=>{
       this.courseService.getAllCourses().subscribe(data=>this.allCourses=data)
@@ -65,9 +55,13 @@ export class AllCoursesComponent  {
   createCourse() {
     this.router.navigate([`courses/add`]);
   }
+
+  
   updateCourse(course: Course) {
     this.router.navigate([`courses/edit/${course.id}`]);
   }
+
+
   isInCourse(courseId:number):boolean{
     return this.joinedCourses.find(c=>c.id==courseId)?true:false
   }
