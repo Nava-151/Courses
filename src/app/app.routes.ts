@@ -24,5 +24,5 @@ export const routes: Routes = [
             canActivate: [connectedGuard],
         } ]
     },
-    {path:'**',component:LoginComponent}
+    {path:'*',component:LoginComponent}
 ];
