@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "courseManagment": {
+    "project": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/course-managment",
+            "outputPath": "dist/project",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -30,25 +30,15 @@
               "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.css"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "700kB",
+                  "maximumError": "1.2MB"
                 }
               ],
               "outputHashing": "all"
@@ -65,10 +55,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "courseManagment:build:production"
+              "buildTarget": "project:build:production"
             },
             "development": {
-              "buildTarget": "courseManagment:build:development"
+              "buildTarget": "project:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -101,6 +91,6 @@
     }
   },
   "cli": {
-    "analytics": "5df66461-9b0c-48e4-ac6e-9934f4de4471"
+    "analytics": "452ab693-10cd-403d-8af2-a94455da6e58"
   }
 }
