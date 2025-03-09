@@ -23,5 +23,6 @@ export const routes: Routes = [
             component: DisplayCourseComponent,
             canActivate: [connectedGuard],
         } ]
-    }
+    },
+    {path:'**',component:LoginComponent}
 ];
