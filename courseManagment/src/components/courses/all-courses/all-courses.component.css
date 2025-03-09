@@ -27,7 +27,7 @@
 }
 
 .mat-raised-button:hover {
-  background-color: rgba(64, 224, 208, 0.2); /* Light turquoise on hover */
+  background-color: rgba(64, 224, 208); /* Light turquoise on hover */
 }
 
 .mat-card-actions button {
